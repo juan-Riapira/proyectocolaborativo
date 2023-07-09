@@ -1,5 +1,5 @@
 # Getting Started
-#Inicio
+
 
 - Trabajo colaborativo de los estudiantes de ingeniera en sistemas y computacion de la universidad pedagogica y tecnologica de colombia .
 
@@ -16,7 +16,7 @@
 
 
 **Como funcioana la  aplicacion**
-1. u
+1. 
 1. 
 1. 
 1. 
