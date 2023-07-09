@@ -1,5 +1,8 @@
 package Trabajo;
+import java.util.Scanner;
+
 import javax.swing.JOptionPane;
+import logica.Egolatra;
 public class Runner {
 
 	public static void main(String[] args) {
@@ -37,6 +40,7 @@ public class Runner {
 				   break;
 				 
 			   case '4' :
+				   Runner.opcion4();
 				   break;
 			   case '5' :
 				   break;
@@ -59,7 +63,21 @@ public class Runner {
 	        if( option == JOptionPane.YES_OPTION ){
 	            System.exit( 0 );
 	        }
-	    }
+	 }
+	 
+	 private static void opcion4() {
+		 Scanner sc = new Scanner (System.in);
+			System.out.println("Digite el numero que desea comprobar");
+			
+			int numero = sc.nextInt();
+			
+			 if (Egolatra.esEgolatra(numero)==true)  {
+				 System.out.printf(" El numero %d es egolatra \n",numero);
+
+			 }else {
+				 System.out.printf(" El numero %d no es egolatra \n ",numero);
+			 }
+	 }
 	
 	
 	
