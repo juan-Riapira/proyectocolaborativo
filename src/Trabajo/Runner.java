@@ -157,6 +157,26 @@ public class Runner {
 				 JOptionPane.showMessageDialog(null,"El numero no es egolatra\n "+ numero);
 				 
 			 }
+
+				do {
+			 	int num =Integer.parseInt(JOptionPane.showInputDialog("Digite el valor a evaluar"));
+				
+			 	if (Egolatra.esEgolatra(num)==true)  {
+			 		JOptionPane.showMessageDialog(null, "El numero es egolatra");
+				 
+			 	}else {
+			 		JOptionPane.showMessageDialog(null,  "El numero no es egolatra");
+			 	}
+			 	 int optionOne=JOptionPane.showConfirmDialog(null, "ingresar otro numero","salir o repetir ",JOptionPane.YES_NO_CANCEL_OPTION);
+				   
+				   if(optionOne != JOptionPane.YES_OPTION) {
+					   break; 
+					   
+				   }
+	   }while(true);
+
+		
+
 	 }
 	 
 	 // numero magico
@@ -282,7 +302,7 @@ public class Runner {
 	
 	
 	private static  void generarFormatoDeFecha () {     
-		 int dia,mes,año;
+		 int dia,mes,aÃ±o;
 		         int op =0 ,salir = 0;
 		      
 		         
@@ -305,7 +325,7 @@ public class Runner {
 		        
 		         mes = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el mes en # :" ) );
 		        
-		         año = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el Años en # :" ) );
+		         aÃ±o = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el AÃ±os en # :" ) );
 		         
 		         do{
 		         
@@ -364,9 +384,9 @@ public class Runner {
 		       }while (op != 1);
 		      
 		      
-		         JOptionPane.showMessageDialog(null,"fecha ingresada: "+ dia +"/"+mes+"/"+año);
+		         JOptionPane.showMessageDialog(null,"fecha ingresada: "+ dia +"/"+mes+"/"+aÃ±o);
 		        
-		         JOptionPane.showMessageDialog(null,"fecha de Salida: "+ dia +" de "+m[mes-1]+" del "+año);
+		         JOptionPane.showMessageDialog(null,"fecha de Salida: "+ dia +" de "+m[mes-1]+" del "+aÃ±o);
 		       
 		         
 		           break;
@@ -404,7 +424,7 @@ public class Runner {
         
         do {
          try {
-         opcion = Integer.parseInt(JOptionPane.showInputDialog(null,"     MENU      \n\n1.Iniciar la ejecución \n2.Salir del programa\n\n ingrese opcion:" ) );
+         opcion = Integer.parseInt(JOptionPane.showInputDialog(null,"     MENU      \n\n1.Iniciar la ejecuciÃ³n \n2.Salir del programa\n\n ingrese opcion:" ) );
    
         if ( opcion == 1 || opcion == 2){
            
