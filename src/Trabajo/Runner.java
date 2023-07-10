@@ -1,6 +1,8 @@
 package Trabajo;
 import java.util.Scanner;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.JOptionPane;
 import logica.Egolatra;
@@ -21,18 +23,19 @@ public class Runner {
 	
 	private static void menu() {
 		String menu = " ----menu----\n"
-				+ "1 Numero romano\n"
-				+ "2 Factores Primos\n"
-				+ "3 Borrar Espacios\n"
-				+ "4 Numeros Egolotras\n"
-				+ "5 Numero Magico\n"
-				+ "6 Fechas\n"
-				+ "x salir";
+				+ "1. Numero romano\n"
+				+ "2. Factores Primos\n"
+				+ "3. Borrar Espacios\n"
+				+ "4. Numeros Egolotras\n"
+				+ "5. Numero Magico\n"
+				+ "6. Fechas\n"
+				+ "x. salir";
 	   char option ='0';
 		do {
 			 option =Character.toUpperCase(JOptionPane.showInputDialog(menu).charAt(0));
 			switch(option) {
 			   case '1' :
+				   numeroRomano ();
 				   break;
 			   case '2':
 				   PrimeFactors(); 
@@ -42,7 +45,7 @@ public class Runner {
 				   break;
 				 
 			   case '4' :
-				   Runner.opcion4();
+				   opcion4();
 				   break;
 			   case '5' :
 				   numberMagic();
@@ -62,6 +65,7 @@ public class Runner {
 	}
 	
 	
+	
 	 private static void exitRun() {
 	        int option = JOptionPane.showConfirmDialog(null,"Esta Segur@","Salir",JOptionPane.YES_NO_OPTION);
 	        if( option == JOptionPane.YES_OPTION ){
@@ -69,7 +73,91 @@ public class Runner {
 	        }
 	 }
 	 
+ public static void numeroRomano () {
+			boolean salir = true;
+			
+			do {
+			
+			try {
+			
+			 String number =JOptionPane.showInputDialog(null,"Ingrese el numero en Romano:" );
+			 number = number.toUpperCase();
+			 int entero = romanToInt(number);
+			 JOptionPane.showMessageDialog(null,"NUMERO ENTERO: "+entero );
+			 salir = false;
+			}
+			catch (Exception e) {
+				JOptionPane.showMessageDialog(null,"--- Error ---\nIngrese un numero valido");
+		      
+			}
+			
+			}while(salir != false);
+		}
+			
+			
+			
+			
+			
+
+		public static int romanToInt (String s) {
+			
+			int resultado = 0;
+			int length = s.length();
+			
+			Map<Character,Integer> romanM = getRomaMap();
+			
+			for (int i = 0; i<length -1 ; i++) {
+				
+				int currentValue = romanM.get(s.charAt(i));
+				
+				if(currentValue < romanM.get (s.charAt(i +1))) {
+					resultado-= currentValue;
+					
+				}else {
+					resultado+=currentValue;
+				}
+				
+			}
+			
+			return resultado +romanM.get(s.charAt(length-1));
+			
+			}
+
+		public static Map<Character,Integer> getRomaMap(){
+			
+			Map<Character,Integer> roman = new HashMap<Character, Integer>();
+			roman.put('I', 1);
+			roman.put('V', 5);
+			roman.put('X', 10);
+			roman.put('L', 50);
+			roman.put('C', 100);
+			roman.put('D', 500);
+			roman.put('M', 1000);
+			
+			return roman;
+			
+			
+		}
+	 
+	 
+	 
+	 
+	 
 	 private static void opcion4() {
+		 
+		 Scanner sc = new Scanner (System.in);
+			
+			int numero = Integer.parseInt(JOptionPane.showInputDialog(null,"Digite el numero que desea comprobar"));
+			
+			 if (Egolatra.esEgolatra(numero)==true)  {
+				JOptionPane.showMessageDialog(null," El numero es egolatra\n"+ numero);
+				
+
+			 }else {
+				 JOptionPane.showMessageDialog(null,"El numero no es egolatra\n "+ numero);
+				 
+			 }
+
 				do {
 			 	int num =Integer.parseInt(JOptionPane.showInputDialog("Digite el valor a evaluar"));
 				
@@ -88,6 +176,7 @@ public class Runner {
 	   }while(true);
 
 		
+
 	 }
 	 
 	 // numero magico
@@ -213,7 +302,7 @@ public class Runner {
 	
 	
 	private static  void generarFormatoDeFecha () {     
-		 int dia,mes,año;
+		 int dia,mes,aÃ±o;
 		         int op =0 ,salir = 0;
 		      
 		         
@@ -236,7 +325,7 @@ public class Runner {
 		        
 		         mes = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el mes en # :" ) );
 		        
-		         año = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el Años en # :" ) );
+		         aÃ±o = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el AÃ±os en # :" ) );
 		         
 		         do{
 		         
@@ -295,9 +384,9 @@ public class Runner {
 		       }while (op != 1);
 		      
 		      
-		         JOptionPane.showMessageDialog(null,"fecha ingresada: "+ dia +"/"+mes+"/"+año);
+		         JOptionPane.showMessageDialog(null,"fecha ingresada: "+ dia +"/"+mes+"/"+aÃ±o);
 		        
-		         JOptionPane.showMessageDialog(null,"fecha de Salida: "+ dia +" de "+m[mes-1]+" del "+año);
+		         JOptionPane.showMessageDialog(null,"fecha de Salida: "+ dia +" de "+m[mes-1]+" del "+aÃ±o);
 		       
 		         
 		           break;
@@ -335,7 +424,7 @@ public class Runner {
         
         do {
          try {
-         opcion = Integer.parseInt(JOptionPane.showInputDialog(null,"     MENU      \n\n1.Iniciar la ejecución \n2.Salir del programa\n\n ingrese opcion:" ) );
+         opcion = Integer.parseInt(JOptionPane.showInputDialog(null,"     MENU      \n\n1.Iniciar la ejecuciÃ³n \n2.Salir del programa\n\n ingrese opcion:" ) );
    
         if ( opcion == 1 || opcion == 2){
            
