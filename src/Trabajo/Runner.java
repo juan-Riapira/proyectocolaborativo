@@ -70,17 +70,24 @@ public class Runner {
 	 }
 	 
 	 private static void opcion4() {
-		 Scanner sc = new Scanner (System.in);
-			System.out.println("Digite el numero que desea comprobar");
-			
-			int numero = sc.nextInt();
-			
-			 if (Egolatra.esEgolatra(numero)==true)  {
-				 System.out.printf(" El numero %d es egolatra \n",numero);
+				do {
+			 	int num =Integer.parseInt(JOptionPane.showInputDialog("Digite el valor a evaluar"));
+				
+			 	if (Egolatra.esEgolatra(num)==true)  {
+			 		JOptionPane.showMessageDialog(null, "El numero es egolatra");
+				 
+			 	}else {
+			 		JOptionPane.showMessageDialog(null,  "El numero no es egolatra");
+			 	}
+			 	 int optionOne=JOptionPane.showConfirmDialog(null, "ingresar otro numero","salir o repetir ",JOptionPane.YES_NO_CANCEL_OPTION);
+				   
+				   if(optionOne != JOptionPane.YES_OPTION) {
+					   break; 
+					   
+				   }
+	   }while(true);
 
-			 }else {
-				 System.out.printf(" El numero %d no es egolatra \n ",numero);
-			 }
+		
 	 }
 	 
 	 // numero magico
