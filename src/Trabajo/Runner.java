@@ -38,6 +38,7 @@ public class Runner {
 				   PrimeFactors(); 
 				   break;
 			   case '3' :
+				   eliminarEspacios ();
 				   break;
 				 
 			   case '4' :
@@ -47,6 +48,7 @@ public class Runner {
 				   numberMagic();
 				   break;
 			   case '6' :
+				   generarFormatoDeFecha ();
 				   break;
 			   case 'X' :
 				
@@ -202,5 +204,158 @@ public class Runner {
        return exponen.toString();
   }
 	
+	
+	private static  void generarFormatoDeFecha () {     
+		 int dia,mes,año;
+		         int op =0 ,salir = 0;
+		      
+		         
+		        String  m [] = {"Enero" ,"Febrero" , "Marzo" , "Abril" , "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre","Diciembre"};
+		         
+		         Scanner entrada = new Scanner(System.in);
+		         JOptionPane.showMessageDialog(null,"<<<<< BIENVENIDO >>>>>\n\nPrograma para ingresar fecha y mostra en formado\n dd de mes del aaaa");
+		                 
+		        
+		         do{
+		         
+		         try{
+		           int opcion = Integer.parseInt(JOptionPane.showInputDialog(null,"     MENU      \n\n1.Ingresar fecha \n2.Finalizar\n\n ingrese opcion:" ) );
+		
+		      switch (opcion)   {
+		         case 1:
+		         
+		         
+		         dia = Integer.parseInt(JOptionPane.showInputDialog(null," ACONTINUACION INGRESE LA FECHA\n\nIngrese el dia en # :" ) );
+		        
+		         mes = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el mes en # :" ) );
+		        
+		         año = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el Años en # :" ) );
+		         
+		         do{
+		         
+		         if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12){
+		             
+		             if (dia > 31){
+		              JOptionPane.showMessageDialog(null,"--- Error ---:");
+		              
+		              dia =   Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el dia VALIDO:" ) );
+		             }else {
+		                JOptionPane.showMessageDialog(null,"--- Exito ---\nFecha correcta:");
+		             
+		                op = 1; 
+		                 
+		             }
+		             
+		         }else {
+		             if( mes == 4 || mes == 6 || mes == 9 || mes ==11){
+		                 
+		               if (dia > 30){
+		              JOptionPane.showMessageDialog(null,"--- Error ---:");
+		              
+		              dia = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el dia VALIDO:" ) ); 
+		             }else {
+		              JOptionPane.showMessageDialog(null,"--- Exito ---\nFecha correcta:");
+		            
+		                op = 1; 
+		                 
+		             }
+		                 
+		                 
+		             }else {
+		                 if(mes == 2){
+		                     
+		              if (dia > 28){
+		              JOptionPane.showMessageDialog(null,"--- Error ---");
+		               
+		                dia =  Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el dia VALIDO:" ) );
+		               }else {
+		                 JOptionPane.showMessageDialog(null,"--- Exito ---\nFecha correcta:");
+		              
+		                op = 1; 
+		                 
+		                   }
+		            
+		               }else {
+		                    
+		                    JOptionPane.showMessageDialog(null,"--- Error ---");
+		                     mes = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese un mes VALIDO:" ) );
+		                     
+		                 }
+		             }
+		             
+		         }
+		        
+		       }while (op != 1);
+		      
+		      
+		         JOptionPane.showMessageDialog(null,"fecha ingresada: "+ dia +"/"+mes+"/"+año);
+		        
+		         JOptionPane.showMessageDialog(null,"fecha de Salida: "+ dia +" de "+m[mes-1]+" del "+año);
+		       
+		         
+		           break;
+		          case 2:
+		             JOptionPane.showMessageDialog(null,"----FIN DEL PROGRAMA-----");
+		             
+		              salir = 1;
+		              break;
+		              
+		          default:
+		              JOptionPane.showMessageDialog(null,"--- Error ---\nIngrese una Opcion valida");
+		              break;
+		              
+		              
+		        }
+		       }
+		         catch(Exception e){
+		             
+		             JOptionPane.showMessageDialog(null,"--- Error ---\nIngrese OPCION VALIDA");
+		                 
+		                 
+		                 
+		                 }
+		         }while(salir != 1);
+		         
+		        
+
+		}
+	
+	private static void eliminarEspacios () {
+		 
+        JOptionPane.showMessageDialog(null,"-----PROGRAMA PARA ELIMINAR ESPACIOS EN UNA CADENA DE TEXTO-----");      
+
+        int opcion = 1 ;
+        
+        do {
+         try {
+         opcion = Integer.parseInt(JOptionPane.showInputDialog(null,"     MENU      \n\n1.Iniciar la ejecución \n2.Salir del programa\n\n ingrese opcion:" ) );
+   
+        if ( opcion == 1 || opcion == 2){
+           
+       switch (opcion){
+           case 1:
+        String cadena  =  JOptionPane.showInputDialog(null,"Ingrese Cadena con espacios: " );
+        cadena = cadena.replaceAll ("\\s+","");
+        JOptionPane.showMessageDialog(null,"Cadena sin espacios : \n " +cadena+ "\nLongitud de la cadena: "+cadena.length());
+               
+               break ;
+           case 2:
+               JOptionPane.showMessageDialog(null,"<<< Ha finalizado la ejecucion >>>");
+             break ;
+             
+       }
+        }else {
+            JOptionPane.showMessageDialog(null,"!!!! Ingrese una opcion valida !!!!>");
+        }
+        
+         }catch (Exception e){
+             JOptionPane.showMessageDialog(null,"--- Error ---\nIngrese OPCION VALIDA");
+         }
+           
+     }while( opcion != 2);
+           
+}
+
+
 	
 }	
