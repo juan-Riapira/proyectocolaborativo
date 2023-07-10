@@ -19,8 +19,8 @@ Como ingresar al codigo
 
 
 ------------
-Como funcioana la  aplicacion
-1. Digita un número para seleccionar un opcion del menu.
+Como funciona la  aplicacion
+1. Digite un número para seleccionar una opcion del menu.
 1. Decide si deseas continuar en el método actual o salir y seleccionar otro método.
 
 ------------
