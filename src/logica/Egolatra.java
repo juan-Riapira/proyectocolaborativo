@@ -22,3 +22,4 @@ public class Egolatra {
 		 return acumulador == numero;
 	}
 }
+
